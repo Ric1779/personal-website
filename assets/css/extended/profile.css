@@ -1,0 +1,16 @@
+.profile .profile_inner > span {
+  color: color-mix(in srgb, var(--primary) 60%, var(--secondary));
+}
+
+.profile .profile_inner > span p {
+  color: inherit;
+}
+
+.profile .social-icons a {
+  padding: 4px; /* try 4–6px instead of 10px */
+}
+
+.profile .social-icons a svg {
+  height: 22px;
+  width: 22px;
+}

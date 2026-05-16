@@ -1,0 +1,59 @@
+baseURL: http://localhost:1314/
+locale: en-us
+title: Richards' Workspace
+theme: ["PaperMod", "hugo-shortcode-gallery"]
+
+enableRobotsTXT: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+minify:
+  minifyOutput: true
+
+params:
+  env: production
+
+  defaultTheme: "dark"
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+
+  label:
+    text: "Richards' Workspace"
+    icon: "images/camera.png"
+    iconHeight: 35
+
+  profileMode:
+    enabled: true
+    title: "Vanakkam Namaste Namaskaram Welcome"
+    subtitle: "A curious earthling 🌱 looking for optimal solutions under the specified 
+    constraints and trying to function at different levels of abstraction. In this chronicle, 
+    I share my expedition of learning in the domains of deep learning, and computer vision."
+
+    imageUrl: "images/dp_10.png"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: "Ric"
+
+    buttons:
+      - name: Blogs
+        url: blogs
+      - name: Projects
+        url: projects
+      - name: Resume
+        url: docs/RESUME.pdf
+
+  homeInfoParams:
+    Title: "Hi there \U0001F44B"
+    Content: Welcome to my blog
+
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/ric1779/"
+    - name: github
+      url: "https://github.com/Ric1779"
+    - name: instagram
+      url: "https://www.instagram.com/crichardsbritto/"
