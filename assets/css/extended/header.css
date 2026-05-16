@@ -2,3 +2,48 @@
   padding-top: 12px;
   padding-bottom: 6px;
 }
+
+/* Animated gradient logo text (see params.label.gradient in hugo.yaml) */
+.logo-gradient-text {
+  display: inline;
+  background-image: var(--logo-gradient-light);
+  background-size: 300% 100%;
+  background-repeat: repeat;
+  background-position: 0% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: logo-gradient-shift var(--logo-gradient-speed, 8s) ease-in-out
+    infinite alternate;
+}
+
+:root[data-theme="dark"] .logo-gradient-text {
+  background-image: var(--logo-gradient-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] .logo-gradient-text {
+    background-image: var(--logo-gradient-dark);
+  }
+}
+
+.logo a:hover .logo-gradient-text--pause-hover {
+  animation-play-state: paused;
+}
+
+@keyframes logo-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-gradient-text {
+    animation: none;
+    background-position: 0% 50%;
+  }
+}

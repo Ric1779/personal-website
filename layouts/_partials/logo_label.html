@@ -1,0 +1,29 @@
+{{- $label_text := .label_text }}
+{{- $grad := site.Params.label.gradient | default dict }}
+{{- if ($grad.enabled | default false) }}
+{{- $darkList := slice "#5227FF" "#FF9FFC" "#B497CF" "#5227FF" }}
+{{- $lightList := slice "#4F46E5" "#7C3AED" "#C026D3" "#4F46E5" }}
+{{- with $grad.colorsDark }}
+  {{- if eq (len .) 3 }}
+    {{- $darkList = slice (index . 0) (index . 1) (index . 2) (index . 0) }}
+  {{- end }}
+{{- else }}
+  {{- with $grad.colors }}
+    {{- if eq (len .) 3 }}
+      {{- $darkList = slice (index . 0) (index . 1) (index . 2) (index . 0) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- with $grad.colorsLight }}
+  {{- if eq (len .) 3 }}
+    {{- $lightList = slice (index . 0) (index . 1) (index . 2) (index . 0) }}
+  {{- end }}
+{{- end }}
+{{- $speed := $grad.animationSpeed | default 8 }}
+<span
+  class="logo-gradient-text{{- if ($grad.pauseOnHover | default false) }} logo-gradient-text--pause-hover{{- end }}"
+  style="--logo-gradient-dark: linear-gradient(to right, {{ delimit $darkList ", " }}); --logo-gradient-light: linear-gradient(to right, {{ delimit $lightList ", " }}); --logo-gradient-speed: {{ $speed }}s;"
+>{{ $label_text }}</span>
+{{- else }}
+{{- $label_text -}}
+{{- end }}

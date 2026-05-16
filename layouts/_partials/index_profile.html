@@ -31,7 +31,12 @@
         {{- end }}
         {{- end }}
         {{- partial "hero_title.html" . -}}
-        <span>{{ .subtitle | markdownify }}</span>
+        {{- $subtitleSize := .subtitleFontSize | default "1.125rem" }}
+        {{- $subtitleWeight := .subtitleFontWeight | default "400" }}
+        <span
+          class="profile-subtitle"
+          style="--profile-subtitle-size: {{ $subtitleSize }}; --profile-subtitle-weight: {{ $subtitleWeight }};"
+        >{{ .subtitle | markdownify }}</span>
         {{- partial "social_icons.html" -}}
 
         {{- with .buttons }}

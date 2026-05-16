@@ -20,6 +20,7 @@ minify:
 
 params:
   env: production
+  hideFooter: true
 
   math: true
   defaultTheme: "dark"
@@ -30,6 +31,18 @@ params:
     text: "Richards' Workspace"
     icon: "images/camera.png"
     iconHeight: 35
+    gradient:
+      enabled: true
+      colorsDark:
+        - "#5227FF"
+        - "#FF9FFC"
+        - "#B497CF"
+      colorsLight:
+        - "#4F46E5"
+        - "#7C3AED"
+        - "#C026D3"
+      animationSpeed: 3
+      pauseOnHover: false
 
   profileMode:
     enabled: true
@@ -46,6 +59,8 @@ params:
     subtitle: "A curious earthling 🌱 looking for optimal solutions under the specified 
     constraints and trying to function at different levels of abstraction. In this chronicle, 
     I share my expedition of learning in the domains of deep learning, and computer vision."
+    subtitleFontSize: "1.125rem"
+    subtitleFontWeight: "500"
 
     imageUrl: "images/dp_10.png"
     imageWidth: 120

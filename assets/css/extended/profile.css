@@ -1,9 +1,18 @@
-.profile .profile_inner > span {
+.profile-subtitle {
+  font-size: var(--profile-subtitle-size, 1.125rem);
+  font-weight: var(--profile-subtitle-weight, 400);
+  line-height: 1.6;
   color: color-mix(in srgb, var(--primary) 60%, var(--secondary));
 }
 
-.profile .profile_inner > span p {
+.profile-subtitle p {
   color: inherit;
+}
+
+@media screen and (max-width: 768px) {
+  .profile-subtitle {
+    font-size: calc(var(--profile-subtitle-size, 1.125rem) * 0.9);
+  }
 }
 
 .profile .social-icons a {
@@ -13,7 +22,7 @@
 .profile .profile_inner h1,
 .profile .profile_inner .hero-typewriter {
   font-size: 5rem;
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.2;
 }
 
