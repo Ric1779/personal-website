@@ -10,6 +10,59 @@
   padding: 6px; /* try 4–6px instead of 10px */
 }
 
+.profile .profile_inner h1,
+.profile .profile_inner .hero-typewriter {
+  font-size: 5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.hero-typewriter {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.hero-typewriter__inner {
+  display: inline;
+  white-space: pre-wrap;
+}
+
+.hero-typewriter__content,
+.hero-typewriter__cursor {
+  display: inline;
+  vertical-align: baseline;
+}
+
+.hero-typewriter__cursor {
+  animation: hero-cursor-blink 1s step-end infinite;
+}
+
+.hero-typewriter__cursor--hidden {
+  visibility: hidden;
+}
+
+@keyframes hero-cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.hero-typewriter noscript {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .profile .profile_inner h1,
+  .profile .profile_inner .hero-typewriter {
+    font-size: 2.25rem;
+  }
+}
+
 .profile .social-icons a svg {
   height: 22px;
   width: 22px;

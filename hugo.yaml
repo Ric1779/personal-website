@@ -33,7 +33,16 @@ params:
 
   profileMode:
     enabled: true
-    title: "Vanakkam Namaste Namaskaram Welcome"
+    title: "WELCOME VÄLKOMMEN VANAKKAM NAMASKARAM NAMASTE WELCOME"
+    typewriter:
+      enabled: true
+      typingSpeed: 200
+      pauseBetweenWords: 400
+      pauseDuration: 1500
+      deletingSpeed: 100
+      loop: false
+      cursorCharacter: "_"
+      cursorBlinkDuration: 0.5
     subtitle: "A curious earthling 🌱 looking for optimal solutions under the specified 
     constraints and trying to function at different levels of abstraction. In this chronicle, 
     I share my expedition of learning in the domains of deep learning, and computer vision."
