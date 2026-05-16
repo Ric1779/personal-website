@@ -7,10 +7,24 @@
 }
 
 .profile .social-icons a {
-  padding: 4px; /* try 4–6px instead of 10px */
+  padding: 6px; /* try 4–6px instead of 10px */
 }
 
 .profile .social-icons a svg {
   height: 22px;
   width: 22px;
+}
+
+.profile .buttons .button {
+  border: 1.5px solid var(--border);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.profile .buttons .button:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--theme);
 }

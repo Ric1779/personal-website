@@ -21,6 +21,7 @@ minify:
 params:
   env: production
 
+  math: true
   defaultTheme: "dark"
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
@@ -61,3 +62,8 @@ params:
       url: "https://github.com/Ric1779"
     - name: instagram
       url: "https://www.instagram.com/crichardsbritto/"
+menu:
+  main:
+    - identifier: about
+      name: About
+      url: /about/

@@ -1,0 +1,8 @@
+<script>
+  document.querySelectorAll("a[title], button[title]").forEach((el) => {
+    if (!el.hasAttribute("aria-label")) {
+      el.setAttribute("aria-label", el.getAttribute("title"));
+    }
+    el.removeAttribute("title");
+  });
+</script>
