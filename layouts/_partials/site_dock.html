@@ -1,0 +1,10 @@
+{{- with site.Params.profileMode }}
+  {{- $dock := .dock | default dict }}
+  {{- if ($dock.enabled | default false) }}
+    {{- with .buttons }}
+    <div class="site-dock">
+      {{- partial "profile_dock.html" (dict "buttons" . "dock" $dock) -}}
+    </div>
+    {{- end }}
+  {{- end }}
+{{- end }}

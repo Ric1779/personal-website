@@ -15,14 +15,79 @@
   }
 }
 
+.profile .social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
 .profile .social-icons a {
-  padding: 6px; /* try 4–6px instead of 10px */
+  padding: 1px;
+}
+
+.profile .social-icons a svg {
+  height: 17px;
+  width: 17px;
+}
+
+.profile .profile_inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.profile-hero-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Home hero: one screen, no scroll, content centered under navbar */
+html:has(body.list .profile) {
+  overflow: hidden;
+  height: 100%;
+}
+
+body.list:has(.profile) {
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+}
+
+body.list:has(.profile) .main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  height: calc(100vh - var(--header-height));
+  height: calc(100dvh - var(--header-height));
+  max-height: calc(100vh - var(--header-height));
+  max-height: calc(100dvh - var(--header-height));
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+body.list:has(.profile) .main .profile {
+  min-height: 0;
+  width: 100%;
+}
+
+body.list:has(.profile) .profile .profile_inner {
+  min-height: 0;
 }
 
 .profile .profile_inner h1,
 .profile .profile_inner .hero-typewriter {
-  font-size: 5rem;
-  font-weight: 500;
+  font-size: var(--profile-title-size, 5rem);
+  font-weight: var(--profile-title-weight, 300);
   line-height: 1.2;
 }
 
@@ -68,16 +133,12 @@
 @media screen and (max-width: 768px) {
   .profile .profile_inner h1,
   .profile .profile_inner .hero-typewriter {
-    font-size: 2.25rem;
+    font-size: calc(var(--profile-title-size, 5rem) * 0.45);
   }
 }
 
-.profile .social-icons a svg {
-  height: 22px;
-  width: 22px;
-}
-
-.profile .buttons .button {
+/* Fallback text buttons (when dock is disabled) */
+.profile .buttons:not(.profile-dock) .button {
   border: 1.5px solid var(--border);
   transition:
     background-color 0.2s ease,
@@ -85,8 +146,153 @@
     color 0.2s ease;
 }
 
-.profile .buttons .button:hover {
+.profile .buttons:not(.profile-dock) .button:hover {
   background: var(--primary);
   border-color: var(--primary);
   color: var(--theme);
+}
+
+/* Global fixed dock (all pages via site_dock.html) */
+.site-dock {
+  position: fixed;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  z-index: 100;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 2rem);
+  pointer-events: none;
+}
+
+.site-dock .profile-dock {
+  width: auto;
+  margin: 0;
+  pointer-events: auto;
+}
+
+body:has(.site-dock):not(.list) .main,
+body:has(.site-dock) .main:not(:has(.profile)) {
+  padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Icon dock (macOS-style) — outline-only, matches page background */
+.profile-dock {
+  --dock-bg: var(--theme);
+  --dock-outline: color-mix(in srgb, var(--primary) 22%, transparent);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.profile-dock-outer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-top: 2.75rem;
+}
+
+.profile-dock-panel {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: fit-content;
+  height: calc(var(--dock-item-size, 50px) + 0.85rem);
+  gap: 1.25rem;
+  padding: 0.35rem 0.75rem 0.5rem;
+  border-radius: 1.25rem;
+  background: var(--dock-bg);
+  border: 1px solid var(--dock-outline);
+  box-shadow: none;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.profile-dock-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--dock-item-size, 50px);
+  height: var(--dock-item-size, 50px);
+  border-radius: 10px;
+  background: var(--dock-bg);
+  border: 1px solid var(--dock-outline);
+  color: var(--primary);
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  transform-origin: center bottom;
+  will-change: transform;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
+}
+
+/* .profile-dock-item:hover,
+.profile-dock-item:focus-visible {
+  border-color: var(
+    --dock-outline-hover,
+    color-mix(in srgb, var(--primary) 20%, transparent)
+  );
+} */
+
+.profile-dock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.profile-dock-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.profile-dock-label {
+  position: absolute;
+  bottom: calc(100% + 0.45rem);
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--dock-outline);
+  background: var(--dock-bg);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.profile-dock-item:hover .profile-dock-label,
+.profile-dock-item:focus-visible .profile-dock-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+:root[data-theme="dark"] .profile-dock {
+  --dock-outline: color-mix(in srgb, var(--primary) 20%, transparent);
+  --dock-outline-hover: color-mix(in srgb, var(--primary) 40%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"] .profile-dock {
+    --dock-outline: color-mix(in srgb, var(--primary) 20%, transparent);
+    --dock-outline-hover: color-mix(in srgb, var(--primary) 40%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-dock-item {
+    transform: none !important;
+  }
 }

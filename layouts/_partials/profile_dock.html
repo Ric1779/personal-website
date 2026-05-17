@@ -1,0 +1,27 @@
+{{- $buttons := .buttons }}
+{{- $dock := .dock | default dict }}
+<div
+  class="profile-dock"
+  data-dock-enabled
+  data-magnification="{{ $dock.magnification | default 1.4 }}"
+  data-distance="{{ $dock.distance | default 200 }}"
+  style="--dock-item-size: {{ $dock.baseItemSize | default 50 }}px;"
+>
+  <div class="profile-dock-outer">
+    <div class="profile-dock-panel" role="toolbar" aria-label="Quick links">
+      {{- range $buttons }}
+      <a
+        class="profile-dock-item"
+        href="{{ trim .url " " | absURL }}"
+        {{- if (findRE "://" .url) }} target="_blank" rel="noopener noreferrer"{{ else }} rel="noopener"{{ end }}
+        aria-label="{{ .name }}"
+      >
+        <span class="profile-dock-label" role="tooltip">{{ .name }}</span>
+        <span class="profile-dock-icon">
+          {{- partial "svg.html" (dict "name" (.icon | default "rss")) -}}
+        </span>
+      </a>
+      {{- end }}
+    </div>
+  </div>
+</div>

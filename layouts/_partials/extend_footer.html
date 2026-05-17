@@ -1,4 +1,7 @@
-{{- with resources.Get "js/hero-typewriter.js" }}
+{{- partial "site_dock.html" . -}} {{- with resources.Get
+"js/hero-typewriter.js" }}
+<script src="{{ (. | minify).Permalink }}" defer></script>
+{{- end }} {{- with resources.Get "js/profile-dock.js" }}
 <script src="{{ (. | minify).Permalink }}" defer></script>
 {{- end }}
 <script>

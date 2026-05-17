@@ -1,15 +1,26 @@
-{{- $title := .title | default site.Title }}
-{{- $plainTitle := $title | plainify }}
-{{- $tw := .typewriter | default dict }}
-{{- if ($tw.enabled | default false) }}
+{{- $title := .title | default site.Title }} {{- $plainTitle := $title |
+plainify }} {{- $titleSize := .titleFontSize | default "5rem" }} {{-
+$titleWeight := .titleFontWeight | default "300" }} {{- $titleStyle := printf
+"--profile-title-size: %s; --profile-title-weight: %s;" $titleSize $titleWeight
+}} {{- $tw := .typewriter | default dict }} {{- if ($tw.enabled | default false)
+}}
 <h1
   class="hero-typewriter"
   aria-label="{{ $plainTitle }}"
+  style="{{ $titleStyle | safeCSS }}"
   data-config="{{ $tw | jsonify }}"
 >
-  <span class="hero-typewriter__inner"><span class="hero-typewriter__content" data-words="{{ $plainTitle }}"></span><span class="hero-typewriter__cursor" aria-hidden="true">{{ $tw.cursorCharacter | default "|" }}</span></span>
+  <span class="hero-typewriter__inner"
+    ><span
+      class="hero-typewriter__content"
+      data-words="{{ $plainTitle }}"
+    ></span
+    ><span class="hero-typewriter__cursor" aria-hidden="true"
+      >{{ $tw.cursorCharacter | default "|" }}</span
+    ></span
+  >
   <noscript>{{ $title }}</noscript>
 </h1>
 {{- else }}
-<h1>{{ $title | markdownify }}</h1>
+<h1 style="{{ $titleStyle | safeCSS }}">{{ $title | markdownify }}</h1>
 {{- end }}

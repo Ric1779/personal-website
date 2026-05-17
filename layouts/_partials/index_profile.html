@@ -1,6 +1,7 @@
 <div class="profile">
     {{- with site.Params.profileMode }}
     <div class="profile_inner">
+        <div class="profile-hero-group">
         {{- if .imageUrl -}}
         {{- $img := "" }}
         {{- if not (urls.Parse .imageUrl).IsAbs }}
@@ -35,11 +36,13 @@
         {{- $subtitleWeight := .subtitleFontWeight | default "400" }}
         <span
           class="profile-subtitle"
-          style="--profile-subtitle-size: {{ $subtitleSize }}; --profile-subtitle-weight: {{ $subtitleWeight }};"
+          style="{{ printf `--profile-subtitle-size: %s; --profile-subtitle-weight: %s;` $subtitleSize $subtitleWeight | safeCSS }}"
         >{{ .subtitle | markdownify }}</span>
         {{- partial "social_icons.html" -}}
 
+        {{- $dock := .dock | default dict }}
         {{- with .buttons }}
+          {{- if not ($dock.enabled | default false) }}
         <div class="buttons">
             {{- range . }}
             <a class="button" href="{{ trim .url " " }}" rel="noopener" title="{{ .name }}">
@@ -57,7 +60,9 @@
             </a>
             {{- end }}
         </div>
+          {{- end }}
         {{- end }}
+        </div>
     </div>
     {{- end}}
 </div>

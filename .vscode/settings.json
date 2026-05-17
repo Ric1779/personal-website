@@ -1,0 +1,6 @@
+{
+  "html.validate.styles": false,
+  "files.associations": {
+    "layouts/**/*.html": "html"
+  }
+}
