@@ -2,3 +2,9 @@
   --main-width: 750px;
   --footer-height: 0px;
 }
+
+/* Keep navbar width stable when scrollbar appears/disappears between pages */
+html {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}

@@ -1,0 +1,17 @@
+/* List cards (blogs, projects, etc.) — border highlight only, no lift */
+.post-entry {
+  transition: border-color 0.6s ease;
+}
+
+.post-entry:hover,
+.post-entry:focus-within {
+  transform: none;
+  border-color: #c4b4ff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-entry:hover,
+  .post-entry:focus-within {
+    transform: none;
+  }
+}

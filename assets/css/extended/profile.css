@@ -27,8 +27,8 @@
 }
 
 .profile .social-icons a svg {
-  height: 17px;
-  width: 17px;
+  height: 22px;
+  width: 22px;
 }
 
 .profile .profile_inner {
@@ -49,39 +49,32 @@
   box-sizing: border-box;
 }
 
-/* Home hero: one screen, no scroll, content centered under navbar */
-html:has(body.list .profile) {
-  overflow: hidden;
-  height: 100%;
-}
-
-body.list:has(.profile) {
-  overflow: hidden;
-  height: 100vh;
-  height: 100dvh;
-}
-
+/*
+ * Home hero (PaperMod-style):
+ * - Large viewports: min-height fills the screen, no overflow → no scrollbar
+ * - Small viewports: content may exceed the screen → page scrolls normally
+ */
 body.list:has(.profile) .main {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 0;
-  height: calc(100vh - var(--header-height));
-  height: calc(100dvh - var(--header-height));
-  max-height: calc(100vh - var(--header-height));
-  max-height: calc(100dvh - var(--header-height));
-  padding-top: 0;
-  padding-bottom: 0;
-  overflow: hidden;
+  min-height: calc(100dvh - var(--header-height) - var(--footer-height));
+  padding: 0.75rem var(--gap) var(--gap);
 }
 
 body.list:has(.profile) .main .profile {
   min-height: 0;
   width: 100%;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-body.list:has(.profile) .profile .profile_inner {
-  min-height: 0;
+/* Small / short viewports: allow scroll and keep content clear of the fixed dock */
+@media (max-width: 768px), (max-height: 719px) {
+  body.list:has(.profile) .main {
+    padding-top: 0.5rem;
+    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 .profile .profile_inner h1,
@@ -280,8 +273,8 @@ body:has(.site-dock) .main:not(:has(.profile)) {
 }
 
 :root[data-theme="dark"] .profile-dock {
-  --dock-outline: color-mix(in srgb, var(--primary) 20%, transparent);
-  --dock-outline-hover: color-mix(in srgb, var(--primary) 40%, transparent);
+  --dock-outline: color-mix(in srgb, var(--primary) 40%, transparent);
+  --dock-outline-hover: color-mix(in srgb, var(--primary) 80%, transparent);
 }
 
 @media (prefers-color-scheme: dark) {

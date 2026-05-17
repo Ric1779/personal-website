@@ -1,5 +1,5 @@
 ---
-title: "About🧗🏽"
+title: "About"
 date: 2024-04-09T23:15:00+07:00
 slug: about
 category:

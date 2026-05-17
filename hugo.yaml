@@ -18,18 +18,50 @@ outputs:
 minify:
   minifyOutput: true
 
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - - \[
+              - \]
+            - - $$
+              - $$
+          inline:
+            - - '\('
+              - '\)'
+            - - $
+              - $
+
 params:
   env: production
   hideFooter: true
 
+  title: RichardsBritto
+  description: "Document my learning notes."
+  keywords: [Blog, Portfolio, SLAM, Deep Learning, Computer Vision]
+  author: Richards Britto
+  DateFormat: "January 2, 2006"
+  defaultTheme: dark # auto, dark, light
+  disableThemeToggle: false
   math: true
-  defaultTheme: "dark"
-  ShowBreadCrumbs: true
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
   ShowCodeCopyButtons: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
 
   label:
     text: "Richards' Workspace"
-    icon: "images/camera.png"
     iconHeight: 35
     gradient:
       enabled: true
@@ -48,7 +80,7 @@ params:
     enabled: true
     title: "WELCOME VÄLKOMMEN VANAKKAM NAMASKARAM NAMASTE WELCOME"
     titleFontSize: "4rem"
-    titleFontWeight: "300"
+    titleFontWeight: "400"
 
     typewriter:
       enabled: true
@@ -67,9 +99,8 @@ params:
     subtitleFontWeight: "400"
 
     imageUrl: "images/dp_10.png"
-    imageWidth: 100
-    imageHeight: 100
-    imageTitle: "Ric"
+    imageWidth: 120
+    imageHeight: 120
 
     dock:
       enabled: true
@@ -99,8 +130,22 @@ params:
       url: "https://github.com/Ric1779"
     - name: instagram
       url: "https://www.instagram.com/crichardsbritto/"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: false # hide on single page
+
 menu:
   main:
     - identifier: about
       name: About
       url: /about/
+      weight: 1
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 8
+    - name: Search
+      url: search/
+      weight: 9
