@@ -18,7 +18,7 @@
       >
         <span class="profile-dock-label" role="tooltip">{{ .name }}</span>
         <span class="profile-dock-icon">
-          {{- partial "svg.html" (dict "name" (.icon | default "rss")) -}}
+          {{- partial "dock-icon.html" (dict "name" (.icon | default "link")) -}}
         </span>
       </a>
       {{- end }}

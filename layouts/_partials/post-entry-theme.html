@@ -1,0 +1,16 @@
+{{- $cfg := site.Params.postEntry.hoverBorder | default dict }}
+{{- $light := $cfg.light | default "#7C3AED" }}
+{{- $dark := $cfg.dark | default "#7bf1a8" }}
+<style>
+  :root {
+    --post-entry-hover-border: {{ $light }};
+  }
+  :root[data-theme="dark"] {
+    --post-entry-hover-border: {{ $dark }};
+  }
+  @media (prefers-color-scheme: dark) {
+    :root[data-theme="auto"] {
+      --post-entry-hover-border: {{ $dark }};
+    }
+  }
+</style>

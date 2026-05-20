@@ -1,0 +1,6 @@
+/* Skills icon grid on About — keep logos sharp inside justified rows */
+.gallery-wrapper .justified-gallery .jg-entry img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}

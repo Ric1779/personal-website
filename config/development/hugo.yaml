@@ -1,0 +1,6 @@
+# Applied automatically when running `hugo server` (environment: development)
+disableFastRender: true
+
+caches:
+  images:
+    maxAge: -1

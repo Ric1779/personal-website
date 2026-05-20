@@ -5,9 +5,9 @@ theme: ["PaperMod", "hugo-shortcode-gallery"]
 
 enableRobotsTXT: true
 
-caches:
-  images:
-    dir: :cacheDir/images
+# caches:
+#   images:
+#     dir: :cacheDir/images
 
 outputs:
   home:
@@ -66,13 +66,13 @@ params:
     gradient:
       enabled: true
       colorsDark:
-        - "#5227FF"
-        - "#FF9FFC"
-        - "#B497CF"
+        - "#a684ff"
+        - "#00bcff"
+        - "#0084d1"
       colorsLight:
-        - "#4F46E5"
-        - "#7C3AED"
-        - "#C026D3"
+        - "#00bcff"
+        - "#0084d1"
+        - "#00598a"
       animationSpeed: 7
       pauseOnHover: false
 
@@ -109,15 +109,21 @@ params:
       baseItemSize: 50
 
     buttons:
+      - name: Home
+        url: /
+        icon: home
+      - name: About
+        url: about
+        icon: user
       - name: Blogs
         url: blogs
-        icon: rss
+        icon: book-open
       - name: Projects
         url: projects
-        icon: github
+        icon: folder
       - name: Resume
         url: docs/RESUME.pdf
-        icon: cv
+        icon: file-text
 
   homeInfoParams:
     Title: "Hi there \U0001F44B"
@@ -131,6 +137,11 @@ params:
     - name: instagram
       url: "https://www.instagram.com/crichardsbritto/"
 
+  postEntry:
+    hoverBorder:
+      light: "#6a7282"
+      dark: "#6a7282"
+
   cover:
     hidden: true # hide everywhere but not in structured data
     hiddenInList: true # hide on list pages and home
@@ -138,10 +149,6 @@ params:
 
 menu:
   main:
-    - identifier: about
-      name: About
-      url: /about/
-      weight: 1
     - identifier: tags
       name: Tags
       url: /tags/
