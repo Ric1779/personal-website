@@ -99,8 +99,8 @@ params:
     subtitleFontWeight: "400"
 
     imageUrl: "images/dp_10.png"
-    imageWidth: 120
-    imageHeight: 120
+    imageWidth: 100
+    imageHeight: 100
 
     dock:
       enabled: true
@@ -121,6 +121,12 @@ params:
       - name: Projects
         url: projects
         icon: folder
+      - name: 3D
+        url: 3d
+        icon: box
+      - name: Drawing
+        url: drawing
+        icon: edit-2
       - name: Resume
         url: docs/RESUME.pdf
         icon: file-text
@@ -153,6 +159,11 @@ menu:
       name: Tags
       url: /tags/
       weight: 8
-    - name: Search
+      params:
+        icon: tag
+    - identifier: search
+      name: Search
       url: search/
       weight: 9
+      params:
+        icon: search

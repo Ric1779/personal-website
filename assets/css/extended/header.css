@@ -1,11 +1,72 @@
 .theme-toggle {
-  padding-top: 12px;
-  padding-bottom: 6px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+/* Navbar layout — keep logo text and menu icons vertically centered */
+.header-nav {
+  align-items: center;
+}
+
+.menu {
+  align-items: center;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+}
+
+.menu a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--header-height);
+  line-height: 1;
+}
+
+/* Navbar icon-only menu items (params.icon in hugo.yaml menu.main) */
+.menu-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary);
+  transition: color 0.2s ease;
+  padding-top: 6px;
+}
+
+.menu-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.menu a:hover .menu-icon,
+.menu a:focus-visible .menu-icon,
+.menu .active .menu-icon {
+  color: var(--primary);
+}
+
+.menu .menu-icon-wrap.active {
+  text-decoration: none;
+  text-underline-offset: unset;
+  text-decoration-thickness: unset;
+}
+
+.menu .active .menu-icon svg {
+  stroke-width: 2.25;
 }
 
 /* Animated gradient logo text (see params.label.gradient in hugo.yaml) */
 .logo-gradient-text {
-  display: inline;
+  display: inline-block;
+  line-height: 1.2;
+  vertical-align: middle;
   background-image: var(--logo-gradient-light);
   background-size: 300% 100%;
   background-repeat: repeat;

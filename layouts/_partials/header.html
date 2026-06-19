@@ -90,13 +90,21 @@
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
             {{- $page_url:= $currentPage.Permalink | absLangURL }}
             {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}
+            {{- $icon := .Params.icon -}}
             <li>
                 <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)" | safeHTMLAttr) ("" | safeHTMLAttr ) }}"
-                {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
-                    <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+                {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}
+                aria-label="{{ .Name }}">
+                    <span {{- if eq $menu_item_url $page_url }} class="active{{- if $icon }} menu-icon-wrap{{- end }}"{{- else if $icon }} class="menu-icon-wrap"{{- end }}>
+                        {{- if $icon -}}
+                        <span class="menu-icon" aria-hidden="true">
+                            {{- partial "dock-icon.html" (dict "name" $icon) -}}
+                        </span>
+                        {{- else -}}
                         {{- .Pre }}
                         {{- .Name -}}
                         {{ .Post -}}
+                        {{- end }}
                     </span>
                     {{- if (findRE "://" .URL) }}&nbsp;
                     <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"

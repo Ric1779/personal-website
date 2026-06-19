@@ -1,7 +1,7 @@
 /* List cards (blogs, projects, etc.) — border highlight only, no lift */
 /* Hover border colors: params.postEntry.hoverBorder in hugo.yaml */
 .post-entry {
-  transition: border-color 0.6s ease;
+  transition: border-color 0.2s ease;
 }
 
 .post-entry:hover,
