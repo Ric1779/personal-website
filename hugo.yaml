@@ -48,7 +48,7 @@ params:
   disableThemeToggle: false
   math: true
   ShowReadingTime: true
-  ShowShareButtons: true
+  ShowShareButtons: false
   ShowPostNavLinks: true
   ShowBreadCrumbs: false
   ShowCodeCopyButtons: true
@@ -92,9 +92,9 @@ params:
       cursorCharacter: "_"
       cursorBlinkDuration: 0.5
     
-    subtitle: "A curious earthling 🌱 looking for optimal solutions under the specified 
-    constraints and trying to function at different levels of abstraction. In this chronicle, 
-    I share my expedition of learning in the domains of deep learning, and computer vision."
+    subtitle: "A curious 🌱 earthling trying to understand the world by moving between 
+    different levels of abstraction. In this chronicle, I share my expedition of learning 
+    in the domains of deep learning, and computer vision."
     subtitleFontSize: "1.125rem"
     subtitleFontWeight: "400"
 

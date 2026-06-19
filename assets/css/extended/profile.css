@@ -3,6 +3,7 @@
   font-weight: var(--profile-subtitle-weight, 400);
   line-height: 1.6;
   color: color-mix(in srgb, var(--primary) 60%, var(--secondary));
+  max-width: 41rem;
 }
 
 .profile-subtitle p {
