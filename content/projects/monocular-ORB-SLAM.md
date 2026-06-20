@@ -32,7 +32,7 @@ ORB-SLAM Pipeline:
   As frames are processed, the algorithm identifies key frames and uses them to create new 3D map points. Bundle adjustment comes into play at this stage, minimizing reprojection errors by adjusting both the camera pose and the 3D points in the map. This step enhances the overall accuracy and consistency of the reconstructed environment.
 
 - **Loop Closure:**
-  One of the critical aspects of ORB-SLAM is its ability to detect loops in the environment. This is achieved by comparing each key frame against all previous key frames using a bag-of-features approach. Once a loop closure is detected, the algorithm optimizes the pose graph, refining the camera poses of all key frames. This ensures a more coherent and accurate representation of the entire environment over time.
+  One of the features of ORB-SLAM is its ability to detect loops in the environment. This is achieved by comparing each key frame against all previous key frames using a bag-of-features approach. Once a loop closure is detected, the algorithm optimizes the pose graph, refining the camera poses of all key frames. This ensures a more coherent and accurate representation of the entire environment over time.
 
 ## Map Initialization
 
@@ -42,7 +42,7 @@ In this initial phase of the Monocular ORB-SLAM project, the journey begins with
 
 ### Importance of Map Initialization
 
-The ORB-SLAM pipeline is commenced by establishing a map housing 3D world points. This initiation is deemed critical, as the accuracy of subsequent SLAM operations heavily relies on a robust starting point. To achieve this, initial ORB feature point correspondences are identified through the `matchFeatures` function, comparing pairs of images in the sequence.
+The ORB-SLAM pipeline is commenced by establishing a map housing 3D world points. This initiation is critical, as the accuracy of subsequent SLAM operations heavily relies on a robust starting point. To achieve this, initial ORB feature point correspondences are identified through the `matchFeatures` function, comparing pairs of images in the sequence.
 
 ### Geometric Transformation Models
 

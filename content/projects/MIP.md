@@ -48,13 +48,13 @@ The utilization of MATLAB's ode45 function for solving the differential equation
 
 ### Explanation of the Physical Principles using Lagrangian Mechanics
 
-Lagrangian mechanics offers a fresh perspective on understanding motion, departing from the conventional Newtonian mechanics which relies on forces to a focus on energy and optimization. In this framework, motion is conceptualized as an optimization process, with the Lagrangian (L), defined as the difference between kinetic energy (T) and potential energy (V), playing a central role. The <span style="color: #0084a5">principle of stationary action</span> dictates that physical systems follow trajectories that minimize the action, computed as the integral over time of the Lagrangian along a given trajectory. This optimization process allows for the prediction of motion by effectively balancing kinetic and potential energies.
+Lagrangian mechanics offers a fresh perspective on understanding motion, departing from the conventional Newtonian mechanics which relies on forces to a focus on energy and optimization. In this framework, motion is conceptualized as an optimization process, with the Lagrangian $(L)$, defined as the difference between kinetic energy $(T)$ and potential energy $(V)$, playing a central role. The **principle of stationary action** dictates that physical systems follow trajectories that minimize the action, computed as the integral over time of the Lagrangian along a given trajectory. This optimization process allows for the prediction of motion by effectively balancing kinetic and potential energies.
 
-The Lagrangian, specifically expressed as L = T - V in classical mechanics, is chosen for its ability to succinctly encapsulate information about the dynamics of a system. The preference for T - V over T + V is justified by the dynamic nature of potential energy, capturing changes in the system rather than its absolute influence on motion. The Lagrangian formulation consistently produces Newton's second law, F = ma, showcasing its effectiveness in predicting the trajectories of physical systems through energy considerations and the principle of stationary action.
+The Lagrangian, specifically expressed as $L = T - V$ in classical mechanics, is chosen for its ability to succinctly encapsulate information about the dynamics of a system. The preference for $T - V$ over $T + V$ is justified by the dynamic nature of potential energy, capturing changes in the system rather than its absolute influence on motion. The Lagrangian formulation consistently produces Newton's second law, $F = ma$, showcasing its effectiveness in predicting the trajectories of physical systems through energy considerations and the principle of stationary action.
 
-The principle of stationary action is elucidated as the foundational concept underlying Lagrangian mechanics. The action, defined as the integral of the Lagrangian over time, is a measure of a system's trajectory through space and time. The principle dictates that the real trajectory a system takes is the one where the action is stationary, expressed mathematically as the functional differential δA = 0. This means that slight variations in the action, or infinitesimal changes in the trajectory, do not affect the overall value of the action. While the mathematical formulation is precise, the intuitive understanding of stationarity draws parallels to stationary points in basic calculus.
+The principle of stationary action is elucidated as the foundational concept underlying Lagrangian mechanics. The action, defined as the integral of the Lagrangian over time, is a measure of a system's trajectory through space and time. The principle dictates that the real trajectory a system takes is the one where the action is stationary, expressed mathematically as the functional differential $δA = 0$. This means that slight variations in the action, or infinitesimal changes in the trajectory, do not affect the overall value of the action. While the mathematical formulation is precise, the intuitive understanding of stationarity draws parallels to stationary points in basic calculus.
 
-<span style="color: #0084a5">The motivation behind why physical systems adhere to the principle of stationary action remains a fascinating yet unanswered question.</span> Despite the lack of a definitive answer, there is a sense of reason in the idea that the universe tends to optimize its behavior, striving towards equilibrium states. In a similar vein to thermodynamics, where systems evolve towards thermal equilibrium, the principle of stationary action suggests that physical systems tend to evolve towards a state where the action is at a stationary point or equilibrium. Though somewhat abstract, this principle is observed across various phenomena in the universe, prompting its acceptance as a postulate in Lagrangian mechanics.
+**The motivation behind why physical systems adhere to the principle of stationary action remains a fascinating yet unanswered question.** Despite the lack of a definitive answer, there is a sense of reason in the idea that the universe tends to optimize its behavior, striving towards equilibrium states. In a similar vein to thermodynamics, where systems evolve towards thermal equilibrium, the principle of stationary action suggests that physical systems tend to evolve towards a state where the action is at a stationary point or equilibrium. Though somewhat abstract, this principle is observed across various phenomena in the universe, prompting its acceptance as a postulate in Lagrangian mechanics.
 
 Lagrangian mechanics provides a powerful framework for understanding the dynamics of mechanical systems, emphasizing the concept of generalized coordinates and the principle of least action. In the case of the MIP, we will explore the Lagrangian formulation to derive the equation of motion.
 
@@ -72,30 +72,30 @@ p = r\begin{bmatrix} \theta+\phi \\ 0 \end{bmatrix} + l\begin{bmatrix} sin(\phi)
 $$
 
 - **Kinetic Energy:**
-  The kinetic energy _T_ of the system is expressed as the sum of translational and rotational kinetic energies:
+  The kinetic energy $T$ of the system is expressed as the sum of translational and rotational kinetic energies:
 
 $$
 T = \frac{1}{2}m_b (\dot{p}^T\dot{p}) + \frac{1}{2}i_b\dot{\phi}^2
 $$
 
 - **Potential Energy:**
-  The potential energy (_V_) is associated with the gravitational potential energy of the pendulum:
+  The potential energy $(V)$ is associated with the gravitational potential energy of the pendulum:
 
 $$
 V = m_bglcos(\phi)
 $$
 
-where _g_ is the acceleration due to gravity.
+where $g$ is the acceleration due to gravity.
 
-- **Lagrangian (L):**
+- **Lagrangian $(L)$:**
 
-  The Lagrangian (_L_) is defined as the difference between kinetic and potential energy:
+  The Lagrangian $(L)$ is defined as the difference between kinetic and potential energy:
 
 $$
 L = T - V
 $$
 
-Substituting the expressions for _T_ and _V_, we obtain:
+Substituting the expressions for $T$ and $V$, we obtain:
 
 $$
 L = \frac{1}{2}m_b (\dot{p}^T\dot{p}) + \frac{1}{2}i_b\dot{\phi}^2 - m_bglcos(\phi)
@@ -125,7 +125,7 @@ $$
 \dot{p} = \begin{bmatrix} r(\dot{\phi} + \dot{\theta}) + lcos(\phi)\dot{\phi} \\ -lsin(\phi)\dot{\phi} \end{bmatrix}
 $$
 
-- **Finding $\dot{p}^T\dot{p}$:**
+- **Finding $\dot{p}^T\dot{p}$ :**
 
 $$
 \dot{p}^T\dot{p} = r^2(\dot{\theta} + \dot{\phi})^2 + 2r(\dot{\theta} + \dot{\phi})lcos(\phi)\dot{\phi} + l^2cos^2(\phi)\dot{\phi}^2 + l^2sin^2(\phi)\dot{\phi}^2
