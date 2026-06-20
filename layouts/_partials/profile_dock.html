@@ -9,8 +9,10 @@
   <div class="profile-dock-outer">
     <div class="profile-dock-panel" role="toolbar" aria-label="Quick links">
       {{- range $buttons }} {{- $rawURL := trim .url " " -}} {{- $isExternal :=
-      gt (len (findRE "://" $rawURL)) 0 -}} {{- $href := cond $isExternal
-      $rawURL ($rawURL | absLangURL) -}}
+      gt (len (findRE "://" $rawURL)) 0 -}} {{- /* Strip leading slash so
+      internal links honor the site base path (e.g. /personal-website/ on GitHub
+      Pages) */ -}} {{- $href := cond $isExternal $rawURL (strings.TrimPrefix
+      "/" $rawURL | relLangURL) -}}
       <a
         class="profile-dock-item"
         href="{{ $href }}"
