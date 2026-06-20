@@ -4,9 +4,8 @@ date: 2026-01-04T20:17:00+09:00
 slug: InlineFunction
 category: InlineFunction
 tags:
-  - AI
-  - Machine-Learning
-  - Graph-Neural-Networks
+  - low-level
+  - programming
 summary:
 description:
 cover:
