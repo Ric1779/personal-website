@@ -14,7 +14,7 @@ cover:
   caption:
   relative: true
 showtoc: true
-draft: true
+draft: false
 ---
 
 ## Why Programs Felt Like Magic to Me

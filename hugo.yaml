@@ -157,7 +157,7 @@ menu:
   main:
     - identifier: tags
       name: Tags
-      url: /tags/
+      url: tags/
       weight: 8
       params:
         icon: tag
