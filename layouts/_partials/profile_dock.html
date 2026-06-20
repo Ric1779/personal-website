@@ -10,7 +10,7 @@
     <div class="profile-dock-panel" role="toolbar" aria-label="Quick links">
       {{- range $buttons }} {{- $rawURL := trim .url " " -}} {{- $isExternal :=
       gt (len (findRE "://" $rawURL)) 0 -}} {{- $href := cond $isExternal
-      $rawURL ($rawURL | relLangURL) -}}
+      $rawURL ($rawURL | absLangURL) -}}
       <a
         class="profile-dock-item"
         href="{{ $href }}"
