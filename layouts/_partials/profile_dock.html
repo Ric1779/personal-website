@@ -1,5 +1,4 @@
-{{- $buttons := .buttons }}
-{{- $dock := .dock | default dict }}
+{{- $buttons := .buttons }} {{- $dock := .dock | default dict }}
 <div
   class="profile-dock"
   data-dock-enabled
@@ -9,16 +8,31 @@
 >
   <div class="profile-dock-outer">
     <div class="profile-dock-panel" role="toolbar" aria-label="Quick links">
-      {{- range $buttons }}
+      {{- range $buttons }} {{- $rawURL := trim .url " " -}} {{- $isExternal :=
+      gt (len (findRE "://" $rawURL)) 0 -}} {{- $href := cond $isExternal
+      $rawURL ($rawURL | relLangURL) -}}
       <a
         class="profile-dock-item"
-        href="{{ trim .url " " | absURL }}"
-        {{- if (findRE "://" .url) }} target="_blank" rel="noopener noreferrer"{{ else }} rel="noopener"{{ end }}
+        href="{{ $href }}"
+        {{-
+        if
+        $isExternal
+        }}
+        target="_blank"
+        rel="noopener noreferrer"
+        {{
+        else
+        }}
+        rel="noopener"
+        {{
+        end
+        }}
         aria-label="{{ .name }}"
       >
         <span class="profile-dock-label" role="tooltip">{{ .name }}</span>
         <span class="profile-dock-icon">
-          {{- partial "dock-icon.html" (dict "name" (.icon | default "link")) -}}
+          {{- partial "dock-icon.html" (dict "name" (.icon | default "link"))
+          -}}
         </span>
       </a>
       {{- end }}
