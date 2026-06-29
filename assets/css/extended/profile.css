@@ -36,6 +36,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0;
   width: 100%;
 }
@@ -54,27 +55,55 @@
  * Home hero (PaperMod-style):
  * - Large viewports: min-height fills the screen, no overflow → no scrollbar
  * - Small viewports: content may exceed the screen → page scrolls normally
+ * - Fixed dock: reserve bottom space so the hero group centers in the visible area
  */
+:root {
+  --site-dock-inset: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+  --hero-vertical-offset: 1.75rem;
+}
+
 body.list:has(.profile) .main {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   min-height: calc(100dvh - var(--header-height) - var(--footer-height));
   padding: 0.75rem var(--gap) var(--gap);
 }
 
+body.list:has(.profile):has(.site-dock) .main {
+  padding-bottom: var(--site-dock-inset);
+  min-height: calc(
+    100dvh - var(--header-height) - var(--footer-height) -
+      var(--site-dock-inset)
+  );
+}
+
 body.list:has(.profile) .main .profile {
-  min-height: 0;
+  min-height: auto;
   width: 100%;
-  justify-content: flex-start;
+  flex: 0 1 auto;
+  justify-content: center;
   align-items: center;
+  transform: translateY(var(--hero-vertical-offset));
 }
 
 /* Small / short viewports: allow scroll and keep content clear of the fixed dock */
 @media (max-width: 768px), (max-height: 719px) {
   body.list:has(.profile) .main {
     padding-top: 0.5rem;
-    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  body.list:has(.profile) .main .profile {
+    --hero-vertical-offset: 3rem;
+  }
+
+  body.list:has(.profile):has(.site-dock) .main {
+    padding-bottom: var(--site-dock-inset);
+    min-height: calc(
+      100dvh - var(--header-height) - var(--footer-height) -
+        var(--site-dock-inset)
+    );
   }
 }
 
@@ -165,7 +194,7 @@ body.list:has(.profile) .main .profile {
 
 body:has(.site-dock):not(.list) .main,
 body:has(.site-dock) .main:not(:has(.profile)) {
-  padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: var(--site-dock-inset);
 }
 
 /* Icon dock (macOS-style) — outline-only, matches page background */
