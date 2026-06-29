@@ -1,5 +1,5 @@
 ---
-title: "Monocular ORB-SLAM 📸"
+title: "Monocular ORB-SLAM"
 date: 2023-12-22T23:15:00+07:00
 slug: monocular-SLAM
 category: projects
