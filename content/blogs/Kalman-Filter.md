@@ -10,7 +10,7 @@ tags:
 summary:
 description:
 cover:
-  image:
+  image: "covers/kalman-filter.png"
   alt:
   caption:
   relative: true
