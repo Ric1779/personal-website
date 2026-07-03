@@ -18,11 +18,11 @@ draft: false
 
 ---
 
-The Mobile Inverted Pendulum (MIP) serves as an excellent introduction in the understanding of control systems and robotics. Comprising an inverted pendulum mounted on a wheel, the MIP exemplifies an inherently unstable system that constantly seeks equilibrium. This characteristic instability necessitates the application of advanced control methodologies to ensure stability and enable precise maneuvering. This project was implemented as part of the [<span style="color: #ffa700">Robotics Specialization in Coursera</span>](https://www.coursera.org/specializations/robotics?utm_medium=sem&utm_source=gg&utm_campaign=b2c_emea_meta-front-end-developer_meta_ftcof_professional-certificates_arte_feb_24_dr_geo-multi_pmax_gads_lg-all&campaignid=21045376738&adgroupid=&device=c&keyword=&matchtype=&network=x&devicemodel=&adposition=&creativeid=&hide_mobile_promo&gad_source=1&gclid=Cj0KCQjwltKxBhDMARIsAG8KnqW6-NwVWxao-B5xSPRXH8JHQLgJzT3Kc6nCuY218nqBH32jBKM3Tg4aAn5wEALw_wcB).
+The Mobile Inverted Pendulum (MIP) serves as an excellent introduction in the understanding of control systems and robotics. Comprising an inverted pendulum mounted on a wheel, the MIP exemplifies an inherently unstable system that constantly seeks equilibrium. This characteristic instability necessitates the application of advanced control methodologies to ensure stability and enable precise maneuvering. This project was implemented as part of the [Robotics Specialization in Coursera](https://www.coursera.org/specializations/robotics?utm_medium=sem&utm_source=gg&utm_campaign=b2c_emea_meta-front-end-developer_meta_ftcof_professional-certificates_arte_feb_24_dr_geo-multi_pmax_gads_lg-all&campaignid=21045376738&adgroupid=&device=c&keyword=&matchtype=&network=x&devicemodel=&adposition=&creativeid=&hide_mobile_promo&gad_source=1&gclid=Cj0KCQjwltKxBhDMARIsAG8KnqW6-NwVWxao-B5xSPRXH8JHQLgJzT3Kc6nCuY218nqBH32jBKM3Tg4aAn5wEALw_wcB).
 
 In the broader context of robotics and automation, mastering control systems is crucial for achieving desired outcomes in various applications. The MIP, with its dynamic and unpredictable nature, serves as an ideal testbed for exploring sophisticated control strategies that can be extended to other complex robotic systems.
 
-This post delves into the world of control systems applied to the MIP, with a particular focus on the integration of an [<span style="color: #ffa700;">Extended Kalman Filter (EKF)</span>]({{< ref "blogs/Kalman-Filter" >}}) for state estimation and a <span style="color: #0084a5">Proportional-Integral-Derivative (PID)</span> controller for stabilization. Through the lens of <span style="color: #0084a5;">Lagrangian mechanics</span>, the fundamental principles governing the motion of the MIP are explored, laying the groundwork for the subsequent design and implementation of a robust control system.
+This post delves into the world of control systems applied to the MIP, with a particular focus on the integration of an [Extended Kalman Filter (EKF)]({{< ref "../../blogs/Kalman-Filter" >}}) for state estimation and a **Proportional-Integral-Derivative (PID)** controller for stabilization. Through the lens of **Lagrangian mechanics**, the fundamental principles governing the motion of the MIP are explored, laying the groundwork for the subsequent design and implementation of a robust control system.
 
 As we navigate through the various components of the control system, from deriving the equation of motion using Lagrangian mechanics to employing MATLAB's ode45 function to solve the differential equation for simulation, we aim to provide a comprehensive understanding of the intricacies involved. This post seeks to not only elucidate the theoretical foundations but also guide readers through the practical implementation, showcasing the synergy between mathematical modeling and real-world application.
 
@@ -260,7 +260,7 @@ $$
 H := \frac{\partial h}{\partial x} = \begin{bmatrix} cos(\phi) & 0\\ -sin(\phi) & 0 \\ 0 & 1 \end{bmatrix}
 $$
 
-For a detailed understanding of EKF and the parameters used in the below code check out [<span style="color: #ffa700;">Kalman Filter and EKF</span>]({{< ref "blogs/Kalman-Filter" >}}) blog post.
+For a detailed understanding of EKF and the parameters used in the below code check out [Kalman Filter and EKF]({{< ref "../../blogs/Kalman-Filter" >}}) blog post.
 
 ```matlab
 function xhatOut = EKFupdate(params, t, z)
